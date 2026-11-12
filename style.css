@@ -143,12 +143,20 @@ aside .top{
 
 aside .logo{
     display: flex;
-    gap: 0.8rem;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 aside .logo img{
-    width: 2rem;
-    height: 2rem;
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+aside .logo h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 aside .close{
     display: none;
@@ -585,7 +593,7 @@ main .recent-orders a{
     }
 }
 
-/*===============MEDIA QUERIES 2=============*/
+/*===============MEDIA QUERIES =============*/
 
 @media screen and (max-width:768px) {
     .container{
@@ -613,6 +621,11 @@ main .recent-orders a{
             visibility: visible;
         }
     }
+
+    aside.show-menu {
+    left: 0;
+    visibility: visible;
+}
 
     aside .logo {
         margin-left: 1rem;
@@ -729,4 +742,119 @@ main .recent-orders a{
 .right .recent-updates .updates .update .message small {
     display: block;
     margin-top: 0.3rem;
+}
+
+/* Add Product Modal */
+.product-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background: var(--color-white);
+    padding: 2rem;
+    border-radius: var(--card-border-radius);
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.modal-content h2 {
+    margin-bottom: 1.5rem;
+}
+
+#close-product-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    color: var(--color-dark);
+}
+
+#add-product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+#add-product-form input {
+    padding: 0.8rem;
+    border: 1px solid var(--color-info-light);
+    border-radius: 0.4rem;
+    background: var(--color-background);
+    color: var(--color-dark);
+}
+
+#add-product-form button {
+    padding: 0.8rem;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    margin-top: 0.8rem;
+}
+
+/* PRODUCT LIST */
+.product-list {
+    margin-top: 2rem;
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.product-list h2 {
+    margin-bottom: 1rem;
+}
+
+.product-list table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.product-list th {
+    color: var(--color-dark);
+    font-weight: 600;
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-light);
+    white-space: nowrap;
+}
+
+.product-list td {
+    padding: 1rem;
+    color: var(--color-dark-variant);
+    border-bottom: 1px solid var(--color-light);
+    white-space: nowrap;
+}
+
+.product-list tbody tr:hover {
+    background: var(--color-light);
+}
+
+/* Allow horizontal scrolling on smaller screens */
+.product-list {
+    overflow-x: auto;
+}
+
+.product-list table {
+    min-width: 500px;
+}
+
+/* Dashboard Navigation */
+.dashboard-section {
+    display: block;
+}
+
+.dashboard-section.hidden {
+    display: none;
 }

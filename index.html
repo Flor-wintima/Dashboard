@@ -15,52 +15,52 @@
         <aside>
             <div class="top">
                 <div class="logo">
-                    <img src="Images/images/logo.png" alt="Logo">
-                    <h2>EGA <span class="danger">TOR</span></h2>
+                    <img src="./Images/images/florix-logo.png" alt="FLORIX Logo">
+                    <h2>FLORix</h2>
                 </div>
                 <div class="close" id="close-btn">
                     <span class="material-icons-sharp">close</span> 
                 </div>
             </div>
             <div class="sidebar"> 
-                <a href="a">
+                <a href="#" data-section="dashboard">
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="a">
+                <a href="#" data-section="customers">
                     <span class="material-icons-sharp">person_outline</span>
                     <h3>Customers</h3>
                 </a>
-                <a href="a">
+                <a href="#" data-section="orders">
                     <span class="material-icons-sharp">receipt_long</span>
                     <h3>Orders</h3>
                 </a>
-                <a href="a">
+                <a href="#" data-section="analytics">
                     <span class="material-icons-sharp">insights</span>
                     <h3>Analytics</h3>
                 </a>
-                <a href="a">
+                <a href="#" data-section="messages">
                     <span class="material-icons-sharp">mail_outline</span>
                     <h3>Messages</h3>
                     <span class="message-count">26</span>
                 </a>
-                <a href="a">
+                <a href="#" data-section="products">
                     <span class="material-icons-sharp">inventory</span>
                     <h3>Products</h3>
                 </a>
-                <a href="a">
+                <a href="#" data-section="reports">
                     <span class="material-icons-sharp">report_gmailerrorred</span>
                     <h3>Reports</h3>
                 </a>
-                <a href="a">
+                <a href="#" data-section="settings">
                     <span class="material-icons-sharp">settings</span>
                     <h3>Settings</h3>
                 </a>
-                <a href="a">
+                <a href="#" id="sidebar-add-product">
                     <span class="material-icons-sharp">add</span>
                     <h3>Add Product</h3>
                 </a>
-                <a href="a">
+                <a href="#logout">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Logout</h3>
                 </a>
@@ -69,7 +69,7 @@
             </aside>
 
             <!-------- END OF ASIDE ------->
-            <main>
+            <main id="dashboard-section" class="dashboard-section">
                 <h1>Dashboard</h1>
                 <div class="date">
                     <input type="date">
@@ -139,7 +139,7 @@
                     <!------------ END OF INCOME ------------>   
 
 
-                    <div class="recent-orders">
+                   <div class="recent-orders dashboard-section" id="orders-section">
                         <h2>Recent Orders</h2>
                         <table>
                             <thead>
@@ -215,6 +215,7 @@
                     </div>
                 </div>
             </div>
+
             <!------END OF TOP----->
             <div class="recent-updates">
                 <h2>Recent Updates</h2>
@@ -224,7 +225,7 @@
                         <img src="./Images/images/profile-2.jpg">
                     </div>
                     <div class="message">
-                       <p><b>Pepertual</b> received her order...</p>
+                       <p><b>Elton</b> received her order...</p>
                         <small class="text-muted">2 minutes ago</small>
                     </div>
                 </div>
@@ -233,8 +234,8 @@
                         <img src="./Images/images/profile-3.jpg">
                     </div>
                     <div class="message">
-                        <p><br>Pepertual</br> received her order of Night Lion tech GPS drone</p>
-                        <small class="text-muted">2 minutes ago</small>
+                        <p><br>Pepertual</br> received her order portable fan</p>
+                        <small class="text-muted">5 minutes ago</small>
                     </div>
                 </div>
                 <div class="update">
@@ -242,14 +243,16 @@
                         <img src="./Images/images/profile-4.jpg">
                     </div>
                     <div class="message">
-                        <p><br>Pepertual</br> received her order of Night Lion tech GPS drone</p>
-                        <small class="text-muted">2 minutes ago</small>
+                        <p><br>Lissete</br> received her order of mini kettle</p>
+                        <small class="text-muted">8 minutes ago</small>
                     </div>
                 </div>
             </div>
         </div>
+
+
         <!------------END OF RECENT UPDATES------------>
-        <div class="sales-analytics">
+        <div class="sales-analytics dashboard-section" id="analytics-section">
             <h2>Sales Analytics</h2>
             <div class="item online">
                 <div class="icon">
@@ -293,7 +296,7 @@
             </div>
             </div>
 
-            <div class="item add-product">
+            <div class="item add-product" id="add-product-btn">
                 <div>
                     <span class="material-icons-sharp">add</span>
                      <h3>Add Product</h3>
@@ -301,8 +304,58 @@
 
             </div>
         </div>
+
+
+        <!-- PRODUCT LIST -->
+      <div class="product-list dashboard-section" id="products-section">
+        <h2>Product List</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Product Number</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+
+        <tbody id="product-list-body">
+        </tbody>
+    </table>
+</div>
+
     </div>
     </div>
+
+    <!-- Add Product Form -->
+<div class="product-modal" id="product-modal" style="display: none;">
+    <div class="modal-content">
+        <span class="material-icons-sharp" id="close-product-modal">
+            close
+        </span>
+
+        <h2>Add New Product</h2>
+
+        <form id="add-product-form">
+            <label for="product-name">Product Name</label>
+            <input type="text" id="product-name" placeholder="Enter product name" required>
+
+            <label for="product-number">Product Number</label>
+            <input type="text" id="product-number" placeholder="Enter product number" required>
+
+            <label for="product-price">Price</label>
+            <input type="number" id="product-price" placeholder="Enter price" min="0" step="0.01" required>
+
+            <label for="product-quantity">Quantity</label>
+            <input type="number" id="product-quantity" placeholder="Enter quantity" min="0" required>
+
+            <button type="submit">Add Product</button>
+        </form>
+    </div>
+</div>
+
+
     <script src="./orders.js"></script>
     <script src="./script.js"></script>
 </body>
